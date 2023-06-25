@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Datos de la Persona</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+        <h2>Datos de la Persona</h2>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+
+        <!--El form contiene el objeto que guarda en sus actions-->
+        <form th:action="@{/guardar}" method="post" th:object="${persona}">
+
+            <!--El id de la persona lo agregamos como un dato oculto-->
+            <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
+
+            <!--Para que las validaciones de thymeleaf funcionen tiene que agregarse las dependencias que estan en la persona.java-->
+            <br/>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</span>            <br/>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" th:field="*{apellido}"/>
+            <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error Apellido</span>
+            <br/>
+            <label for="email">Email:</label>
+            <!--La validacion Email de thymeleaf no funciona por lo tanto usamos el required de html-->
+            <input type="email" name="email" th:field="*{email}" required/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error Email</span>
+            <br/>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <br/>
+            <input type="submit" name="guardar" value="Guardar"/>
+        </form>
+
+        <!--Aca hay lio con la version en git tambien..
+            Perdimos cambios por git... para cerrar el repositorio en VSC usar el comando control shift p git close repository-->
+
+            <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>

@@ -10,7 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Data;
+import jakarta.validation.constraints.Email;
 
 /**
  *
@@ -27,9 +30,36 @@ public class Persona implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPersona;
+
+   
+	@NotEmpty
     private String nombre;
+
+   @NotEmpty
     private String apellido;
+
+   @NotEmpty
+   @Email(message = "Wrong email")
     private String email;
+
     private String telefono;
     
 }
+
+
+/*No se de donde saco las dependencias que funcionan pueden ser estas:
+ *   <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.bval</groupId>
+            <artifactId>bval-jsr</artifactId>
+            <version>2.0.2</version>
+            </dependency>
+
+            //Hay que usar javax validation, no jakarta, es un tema de versiones
+
+        https://stackoverflow.com/questions/2707683/how-do-i-import-javax-validation-into-my-java-se-project
+ */
