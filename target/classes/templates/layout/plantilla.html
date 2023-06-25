@@ -2,15 +2,16 @@
 <html xmlns="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta lang="es">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
     <header th:fragment="header">
-        <h1>Control de clientes</h1>
+        <h1 th:text="#{plantilla.title}"> Titulo</h1>
     </header>
     <footer th:fragment="footer">
-        <p>Derechos reservados <a href="https://www.linkedin.com/in/jose-campos1/" target="_blank">joseacr07 techDev</a></p>
+        <p> [[#{plantilla.pie-pagina}]] <a href="https://www.linkedin.com/in/jose-campos1/" target="_blank">joseacr07 techDev</a></p>
     </footer>
 </body>
 </html>

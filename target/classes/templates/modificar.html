@@ -7,8 +7,8 @@
     </head>
     <body>
         <header th:replace="layout/plantilla :: header"></header>
-        <h2>Datos de la Persona</h2>
-        <a th:href="@{/}">Regresar</a>
+        <h2>[[#{persona.formulario}]]</h2>
+        <a th:href="@{/}">[[#{accion.regresar}]]</a>
         <br/>
 
         <!--El form contiene el objeto que guarda en sus actions-->
@@ -19,23 +19,23 @@
 
             <!--Para que las validaciones de thymeleaf funcionen tiene que agregarse las dependencias que estan en la persona.java-->
             <br/>
-            <label for="nombre">Nombre:</label>
+            <label for="nombre">[[#{persona.nombre}]]:</label>
             <input type="text" name="nombre" th:field="*{nombre}"/>
             <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</span>            <br/>
-            <label for="apellido">Apellido:</label>
+            <label for="apellido">[[#{persona.apellido}]]:</label>
             <input type="text" name="apellido" th:field="*{apellido}"/>
             <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error Apellido</span>
             <br/>
-            <label for="email">Email:</label>
+            <label for="email">[[#{persona.email}]]:</label>
             <!--La validacion Email de thymeleaf no funciona por lo tanto usamos el required de html-->
             <input type="email" name="email" th:field="*{email}" required/>
             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error Email</span>
             <br/>
 
-            <label for="telefono">Teléfono:</label>
+            <label for="telefono">[[#{persona.telefono}]]:</label>
             <input type="tel" name="telefono" th:field="*{telefono}"/>
             <br/>
-            <input type="submit" name="guardar" value="Guardar"/>
+            <input type="submit" name="guardar" th:value="#{accion.guardar}"/>
         </form>
 
         <!--Aca hay lio con la version en git tambien..

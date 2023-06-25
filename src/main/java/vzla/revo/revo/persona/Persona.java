@@ -39,7 +39,7 @@ public class Persona implements Serializable {
     private String apellido;
 
    @NotEmpty
-   @Email(message = "Wrong email")
+   @Email
     private String email;
 
     private String telefono;
