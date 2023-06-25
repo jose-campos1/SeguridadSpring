@@ -11,7 +11,12 @@
         <h1 th:text="#{plantilla.title}"> Titulo</h1>
     </header>
     <footer th:fragment="footer">
-        <p> [[#{plantilla.pie-pagina}]] <a href="https://www.linkedin.com/in/jose-campos1/" target="_blank">joseacr07 techDev</a></p>
+        <div>
+            <br>
+            <a th:href="@{/(lang=es)}">ES</a> |
+            <a th:href="@{/(lang=en)}">EN</a> |
+        </div>
+        <span> [[#{plantilla.pie-pagina}]] <a href="https://www.linkedin.com/in/jose-campos1/" target="_blank">joseacr07 techDev</a></span>
     </footer>
 </body>
 </html>
