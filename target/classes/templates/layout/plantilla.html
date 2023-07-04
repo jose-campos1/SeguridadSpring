@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html xmlns="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta lang="es">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta lang="es" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <header th:fragment="header">
-        <h1 th:text="#{plantilla.title}"> Titulo</h1>
+      <h1 th:text="#{plantilla.title}">Titulo</h1>
     </header>
     <footer th:fragment="footer">
-        <div>
-            <br>
-            <a th:href="@{/(lang=es)}">ES</a> |
-            <a th:href="@{/(lang=en)}">EN</a> |
-        </div>
-        <span> [[#{plantilla.pie-pagina}]] <a href="https://www.linkedin.com/in/jose-campos1/" target="_blank">joseacr07 techDev</a></span>
+      <div>
+        <br />
+        <a th:href="@{/(lang=es)}">ES</a> | <a th:href="@{/(lang=en)}">EN</a> |
+      </div>
+      <span>
+        [[#{plantilla.pie-pagina}]]
+        <a href="https://www.linkedin.com/in/jose-campos1/" target="_blank"
+          >joseacr07 techDev</a
+        ></span>
+        <form method="post" th:action="@{/logout}">
+          <a href="#" onclick="this.parentNode.submit()">Logout ↩ </a>
+        </form>
     </footer>
-</body>
+  </body>
 </html>

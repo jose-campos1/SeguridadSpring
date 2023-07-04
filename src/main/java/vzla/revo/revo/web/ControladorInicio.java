@@ -6,6 +6,8 @@ package vzla.revo.revo.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -30,9 +32,10 @@ public class ControladorInicio {
 
     /*Este get retorna el index que esta en los templated, el log es solo un mensaje a la  consola */
     @GetMapping("/")
-    public String inicio(Model model) {
+    public String inicio(Model model, @AuthenticationPrincipal User user) {
         var personas = personaService.listarPersona();
         log.info("Ejecutando controlador Spring MVC!!");
+        log.info("Usuario que ha echo login ✅" + user);
         model.addAttribute("personas", personas);
         return "index";
     }
